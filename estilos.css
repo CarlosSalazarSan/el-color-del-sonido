@@ -279,3 +279,36 @@ body {
     gap: 24px;
   }
 }
+
+/* ===== Página "Quiénes somos" ===== */
+.pagina-contenido{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+}
+
+.seccion-texto{
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--fondo-tarjeta);
+  padding: 28px 26px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+
+.titulo-seccion{
+  margin: 0 0 18px;
+  font-size: 28px;
+}
+
+.texto-largo{
+  margin: 0 0 16px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px){
+  .seccion-texto{
+    padding: 20px 16px;
+  }
+}
