@@ -1,16 +1,21 @@
 // incluir-partes.js para incluir la cabecera y el footer de menera sincrona en todas las páginas.
-document.addEventListener("DOMContentLoaded", () => {
-  // Cargar cabecera
-  fetch("cabecera.html")
-    .then(respuesta => respuesta.text())
-    .then(html => {
-      document.getElementById("contenedor-cabecera").innerHTML = html;
-    });
+document.addEventListener("DOMContentLoaded", async () => {
+  const cabeceraCont = document.getElementById("contenedor-cabecera");
+  const footerCont = document.getElementById("contenedor-footer");
 
-  // Cargar footer de página
-  fetch("footer.html")
-    .then(respuesta => respuesta.text())
-    .then(html => {
-      document.getElementById("contenedor-footer").innerHTML = html;
-    });
+  try {
+    const [cabeceraResp, footerResp] = await Promise.all([
+      fetch("cabecera.html"),
+      fetch("footer.html")
+    ]);
+
+    cabeceraCont.innerHTML = await cabeceraResp.text();
+    footerCont.innerHTML = await footerResp.text();
+
+  } catch (e) {
+    console.warn("No se pudieron cargar cabecera/footer", e);
+  } finally {
+    // marca como listo (para quitar el “flash”)
+    document.body.classList.add("partes-cargadas");
+  }
 });

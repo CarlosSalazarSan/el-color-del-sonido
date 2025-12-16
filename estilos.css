@@ -14,6 +14,13 @@
   box-sizing: border-box;
 }
 
+/* Codigo para evitar que se vea la ventana del juego antes que la web */
+body:not(.partes-cargadas) .cabecera,
+body:not(.partes-cargadas) .footer,
+body:not(.partes-cargadas) .contenido-principal {
+  visibility: hidden;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",

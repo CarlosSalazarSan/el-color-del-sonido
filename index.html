@@ -9,8 +9,11 @@
   <link rel="stylesheet" href="estilos.css" />
 
   <!-- p5.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js" defer></script>
+  <script src="aplicacion.js" defer></script>
+  <!-- js para incluir footer y cabecera -->
+  <script src="incluir-partes.js" defer></script>
 </head>
 
 <body>
@@ -43,9 +46,6 @@
   <div id="contenedor-footer"></div>
 
 
-  <!-- SCRIPT P5 -->
-  <script src="aplicacion.js"></script>
-
   <!-- SCRIPT: ocultar bienvenida -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -59,9 +59,6 @@
     });
   </script>
 
-  <!-- Script para cargar cabecera y footer -->
-
-  <script src="incluir-partes.js"></script>
 
 </body>
 </html>

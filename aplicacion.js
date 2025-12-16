@@ -498,12 +498,13 @@ class Boton {
     }
 
     //Borde negro
-    stoke(0);
+    stroke(0);
     if (ratonEncima) {
       strokeWeight(3); //borde más grueso
     } else {
       strokeWeight(2);//borde normal
-    };
+    }
+    
     fill(c);
     rect(this.x, this.y, this.ancho, this.alto, 15); //rectángulo
 
