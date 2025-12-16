@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El sonido del color</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="estilos.css" />
+
+  <!-- p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+</head>
+
+<body>
+
+  <!-- CABECERA -->
+   <div id="contenedor-cabecera"></div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contenido-principal">
+    <section class="seccion-hero">
+      <div class="tarjeta-hero">
+
+        <!-- CONTENEDOR DEL JUEGO -->
+        <div id="contenedor-juego" class="contenedor-juego"></div>
+
+        <!-- PANTALLA DE BIENVENIDA -->
+        <div id="pantalla-bienvenida" class="pantalla-bienvenida">
+          <p class="titulo-bienvenida">Bienvenidos a el sonido del color</p>
+          <p class="subtitulo-bienvenida">¿Quieres mejorar tus habilidades auditivas?</p>
+          <button id="boton-inicio" class="boton-primario">INICIO</button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+
+  <!-- footer-->
+  <div id="contenedor-footer"></div>
+
+
+  <!-- SCRIPT P5 -->
+  <script src="aplicacion.js"></script>
+
+  <!-- SCRIPT: ocultar bienvenida -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const botonInicio = document.getElementById("boton-inicio");
+      const pantalla = document.getElementById("pantalla-bienvenida");
+
+      botonInicio.addEventListener("click", () => {
+        pantalla.style.opacity = "0";
+        pantalla.style.pointerEvents = "none";
+      });
+    });
+  </script>
+
+  <!-- Script para cargar cabecera y footer -->
+
+  <script src="incluir-partes.js"></script>
+
+</body>
+</html>
