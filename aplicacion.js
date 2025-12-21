@@ -185,7 +185,7 @@ function dibujarIntro() {
   //Título
   fill(255);
   textSize(26);
-  text("Entrenador de oído - Notas y colores", width / 2, 60);
+  text("Entrena tu oído - Notas y colores", width / 2, 60);
 
   textSize(20);
   fill(230);
