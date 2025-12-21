@@ -1,3 +1,4 @@
+/* colores*/
 :root {
   --color-acento: #ff6600;
   --fondo-pagina: #f4f4f4;
@@ -6,21 +7,21 @@
   --texto-claro: #ffffff;
 }
 
-/* ============== RESETEO BÁSICO ============== */
-
+/* formateo de inicio */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Codigo para evitar que se vea la ventana del juego antes que la web */
+/* oculta cabecera, contenido y footer hasta que js indique que todo cargo */
 body:not(.partes-cargadas) .cabecera,
 body:not(.partes-cargadas) .footer,
 body:not(.partes-cargadas) .contenido-principal {
   visibility: hidden;
 }
 
+/* estilos base del body */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -29,13 +30,14 @@ body {
   color: var(--texto-principal);
 }
 
-/* ============== CABECERA ============== */
+/* cabecera */
 
+/* contenedor general de la cabecera */
 .cabecera {
   width: 100%;
 }
 
-/* Franja naranja superior */
+/* franja naranja superior */
 .cabecera-superior {
   background: var(--color-acento);
   color: #000;
@@ -46,12 +48,13 @@ body {
   font-weight: 500;
 }
 
-/* Banda negra inferior */
+/* banda negra inferior */
 .cabecera-inferior {
   background: #111111;
   color: var(--texto-claro);
 }
 
+/* contenedor interno de la banda inferior */
 .contenedor-cabecera-inferior {
   max-width: 1100px;
   margin: 0 auto;
@@ -61,7 +64,7 @@ body {
   justify-content: space-between;
 }
 
-/* Logo tipo tarjeta blanca */
+/* logo  */
 .logo {
   display: inline-flex;
   flex-direction: column;
@@ -74,22 +77,25 @@ body {
   line-height: 1.1;
 }
 
+/* texto principal del logo */
 .logo-principal {
   font-weight: 600;
 }
 
+/* texto secundario del logo */
 .logo-secundario {
   font-style: italic;
   font-size: 12px;
   color: #003399;
 }
 
-/* Navegación derecha */
+/* navegacion del lado derecho */
 .navegacion {
   display: flex;
   gap: 24px;
 }
 
+/* enlaces  menu */
 .navegacion a {
   color: var(--texto-claro);
   text-decoration: none;
@@ -98,36 +104,40 @@ body {
   font-weight: 600;
 }
 
+/* hoover raton */
 .navegacion a:hover {
   text-decoration: underline;
 }
 
-/* ============== CONTENIDO PRINCIPAL ============== */
+/* contenido principal*/
 
+/* contenedor general del contenido */
 .contenido-principal {
   padding: 40px 16px 80px;
   display: flex;
   justify-content: center;
 }
 
-.seccion-hero {
+/*seccion central */
+.seccion-central {
   width: 100%;
   max-width: 1100px;
   display: flex;
   justify-content: center;
 }
 
-.tarjeta-hero {
+/* tarjeta que contiene el juego */
+.tarjeta-central {
   background: var(--fondo-tarjeta);
   width: 100%;
   max-width: 720px;
   min-height: 360px;
-  position: relative;      /* para colocar la pantalla de bienvenida encima */
+  position: relative; 
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Contenedor del juego (canvas p5) */
+/*contenedor juego */
 .contenedor-juego {
   width: 100%;
   display: flex;
@@ -135,10 +145,10 @@ body {
   justify-content: center;
 }
 
-/* Pantalla de bienvenida superpuesta */
+/* pantalla de bienvenida superpuesta al juego */
 .pantalla-bienvenida {
   position: absolute;
-  inset: 0;               /* top, right, bottom, left = 0 */
+  inset: 0; /* ocupa todo el espacio de la tarjeta */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,16 +158,19 @@ body {
   transition: opacity 0.3s ease;
 }
 
+/* titulo principal de bienvenida */
 .titulo-bienvenida {
   font-size: 1.4rem;
   margin-bottom: 12px;
 }
 
+/* texto secundario de bienvenida */
 .subtitulo-bienvenida {
   font-size: 1rem;
   margin-bottom: 32px;
 }
 
+/* boton principal */
 .boton-primario {
   padding: 14px 48px;
   border: 1px solid #333333;
@@ -168,12 +181,14 @@ body {
   font-size: 0.95rem;
 }
 
-.boton-primario:hover {
+/*hover del boto */
+.boton-primario:hovr {
   background: #e9e9e9;
 }
 
-/* ============== FOOTER ============== */
+/* footer  */
 
+/* contenedor general del footer */
 .footer{
   width: 100%;
   margin-top: 40px;
@@ -181,7 +196,7 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* Bloque negro superior */
+/* bloque negro superior del footer */
 .footer-superior {
   background: #0e0e0e;
   color: #ffffff;
@@ -191,13 +206,14 @@ body {
   align-items: flex-start;
 }
 
-/* Columna de enlaces */
+/* columna de enlaces del footer */
 .enlaces-footer {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
+/* enlaces del footer */
 .enlaces-footer a {
   color: #ffffff;
   text-decoration: none;
@@ -206,24 +222,26 @@ body {
   font-weight: 500;
 }
 
+/*hoover raton */
 .enlaces-footer a:hover {
   text-decoration: underline;
 }
 
-/* Redes sociales */
+/* contenedor RRSS */
 .redes-sociales {
   display: flex;
   gap: 16px;
   align-items: center;
 }
 
+/* iconos de RRSS */
 .icono-red img {
   width: 28px;
   height: 28px;
   object-fit: contain;
 }
 
-/* Barra gris inferior */
+/* barra gris inferior del footer */
 .footer-inferior {
   background: #b5b5b5;
   color: #000000;
@@ -235,32 +253,39 @@ body {
   letter-spacing: 0.04em;
 }
 
-/* ============== RESPONSIVE ============== */
+/* responsive */
 
 @media (max-width: 768px) {
+
+  /* ajustes de la franja superior */
   .cabecera-superior {
     padding: 6px 16px;
     font-size: 12px;
   }
 
+  /* rcabecera inferior en columna */
   .contenedor-cabecera-inferior {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
 
+  /* separacion menu */
   .navegacion {
     gap: 16px;
   }
 
+  /* padding contenido */
   .contenido-principal {
     padding: 24px 12px 40px;
   }
 
-  .tarjeta-hero {
+  /* altura minima de la tarjeta */
+  .tarjeta-central {
     min-height: 260px;
   }
 
+  /* ajuste textos bienvenida */
   .titulo-bienvenida {
     font-size: 1.2rem;
   }
@@ -269,24 +294,29 @@ body {
     font-size: 0.95rem;
   }
 
+  /* boton*/
   .boton-primario {
     width: 100%;
     max-width: 260px;
   }
 
+  /* footer en columna */
   .footer-superior {
     flex-direction: column;
     gap: 24px;
   }
 }
 
-/* ===== Página "Quiénes somos" ===== */
+/* pagina "quienes somos" */
+
+/*contenedor general de la pagina */
 .pagina-contenido{
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 16px 80px;
 }
 
+/*bloque de texto central */
 .seccion-texto{
   max-width: 720px;
   margin: 0 auto;
@@ -295,18 +325,20 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,.1);
 }
 
+/*titulo de la seccion */
 .titulo-seccion{
   margin: 0 0 18px;
   font-size: 28px;
 }
 
+/*parrafos largos */
 .texto-largo{
   margin: 0 0 16px;
   line-height: 1.6;
   font-size: 16px;
 }
 
-/* Ajuste móvil */
+/*ajustes especificos para movil */
 @media (max-width: 768px){
   .seccion-texto{
     padding: 20px 16px;

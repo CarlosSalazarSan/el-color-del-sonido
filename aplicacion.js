@@ -1,14 +1,14 @@
 
 //ESTADOS DEL JUEGO
-const ESTADO_INTRO= 0; //pantallas iniciales
-const ESTADO_NOTA_INTRO = 1; //pantalla resentación de la nueva nota del nivel
-const ESTADO_JUGANDO= 2; //selección de notas
-const ESTADO_FEEDBACK= 3; //pantalla de acierto/error
-const ESTADO_TERMINADO = 4; //juego terminado
+const ESTADO_INTRO= 0;//pantallas iniciales
+const ESTADO_NOTA_INTRO = 1;//pantalla resentación de la nueva nota del nivel
+const ESTADO_JUGANDO= 2;//selección de notas
+const ESTADO_FEEDBACK= 3;//pantalla de acierto/error
+const ESTADO_TERMINADO = 4;//juego terminado
 
 let estado = ESTADO_INTRO;
 
-// PANTALLA INICIAL
+//PANTALLA INICIAL
 let textosIntro = [
   "Bienvenido/a.\n\n" +
   "Este juego te ayuda a asociar notas\n" +
@@ -25,32 +25,32 @@ let textosIntro = [
 
 let paginaIntro = 0;
 
-//NOTAS Y COLORES
+//Notas y colores
 let notas = ["DO", "RE", "MI", "FA", "SOL", "LA", "SI"];
-let colores = []; // se rellenará en setup()
+let colores = []; //se rellenará en setup()
 
-//NIVELES
-let nivel = 0; // 0..7
+//Niveles
+let nivel = 0; //0..7
 let nivelMaximo = 7;
-let aciertosEnNivel = 0; //aciertos acumulados en nivel actual
+let aciertosEnNivel = 0;//aciertos acumulados en nivel actual
 let aciertosNecesarios = 5;//aciertos necesarios para pasar al siguiente nivel
 
-let indiceNotaActual = 0;// índice de nota objetivo (0..6)
+let indiceNotaActual = 0;//índice de nota objetivo (0..6)
 let cantidadOpciones = 1;//nº de botones de nota visibles
 
 let ultimaRespuestaCorrecta = false;
 let haSubidoNivel = false;
 
-// BOTONES
+//Botones
 let botonesNotas = new Array(7);
 let botonRepetir;
 let botonIntro;
 let botonReiniciar;
 
-//SONIDOS
+//Sonidos 
 let sonidos = new Array(7);
 
-//PRELOAD PARA CARGAR SONIDOS
+//Preload sonidos
 function preload() {
   // Cargar archivos musicales
   for (let i = 0; i < notas.length; i++) {
@@ -73,7 +73,7 @@ function preload() {
   }
 }
 
-// Función SETUP
+//Función SETUP
 function setup() {
   // Crea el canvas y lo pone dentro del DIV
   let lienzo = createCanvas(900, 600);
@@ -82,13 +82,13 @@ function setup() {
   textAlign(CENTER, CENTER);
 
   //Colores de las notas
-  let DOcolor= color(255, 75, 75); //rojo
-  let REcolor= color(255, 158, 61);// naranja
-  let MIcolor= color(255, 217, 61);// amarillo
+  let DOcolor= color(255, 75, 75);//rojo
+  let REcolor= color(255, 158, 61);//naranja
+  let MIcolor= color(255, 217, 61);//amarillo
   let FAcolor= color(75, 203, 91);//verde
-  let SOLcolor= color(53, 208, 200);// turquesa
+  let SOLcolor= color(53, 208, 200);//turquesa
   let LAcolor= color(75, 123, 255);//azul
-  let SIcolor= color(165, 91, 255);// violeta
+  let SIcolor= color(165, 91, 255);//violeta
 
   colores = [DOcolor, REcolor, MIcolor, FAcolor, SOLcolor, LAcolor, SIcolor];
 
@@ -112,7 +112,7 @@ function setup() {
     );
   }
 
-  //boton repetir nota - posición se ajusta según el estado
+  //Boton repetir nota - posición se ajusta según el estado
   botonRepetir = new Boton(
     width / 2 - 90,
     height / 2 + 40,
@@ -123,7 +123,7 @@ function setup() {
     -1
   );
 
-  // Botón siguiente
+  //Botón siguiente
   botonIntro = new Boton(
     width / 2 - 80,
     height - 120,
@@ -149,7 +149,7 @@ function setup() {
 //Draw con switch para reconocer el estado
 function draw() {
   
-  // Según el estado actual del juego, se dibuja una pantalla u otra
+  //Según el estado actual del juego, se dibuja una pantalla u otra
   switch (estado) {
     case ESTADO_INTRO:
       dibujarIntro();  //dibuja textos de bienvenida
@@ -160,7 +160,7 @@ function draw() {
       dibujarIntroNota();
       break;
     
-     // Pantalla base del juego en la que se seleccionan las notas
+     //Pantalla base del juego en la que se seleccionan las notas
       case ESTADO_JUGANDO:
       dibujarJugando();
       break;
@@ -232,7 +232,7 @@ function dibujarIntroNota() {
   botonRepetir.texto = "Escuchar nota";
   botonRepetir.dibujar(true);
 
-  // Botón empezar nivel
+  //Botón empezar nivel
   botonIntro.texto = "Empezar nivel";
   botonIntro.x = width / 2 - 100;
   botonIntro.y = height / 2 + 90;
@@ -243,7 +243,7 @@ function dibujarIntroNota() {
 
 function dibujarJugando() {
   
-  background(60); // Fondo color neutro - no empleado por las notas
+  background(60); //Fondo color neutro - no empleado por las notas
 
   //Barra superior
   noStroke();
@@ -269,12 +269,12 @@ function dibujarJugando() {
     105
   );
 
-  // Botones notas
-  let mostrarNombres = (nivel < 7); //En el último nivel (7) no se muestran los colores, por eso menor a 7
+  //Botones notas
+  let mostrarNombres = (nivel < 7);//En el último nivel (7) no se muestran los colores, por eso menor a 7
 
-  let anchoBoton = 90; //ancho
+  let anchoBoton = 90;//ancho
   let altoBoton = 80;//altura
-  let espacio = 15; //separación botones
+  let espacio = 15;//separación botones
 
   //centrado de botones
   let anchoTotal = cantidadOpciones*anchoBoton+(cantidadOpciones-1)*espacio;
@@ -292,7 +292,7 @@ function dibujarJugando() {
     b.dibujar(mostrarNombres);
   }
 
-  // Botón repetir con nota encima de los botones
+  //Botón repetir con nota encima de los botones
   botonRepetir.x = width / 2 - 100;
   botonRepetir.y = y - 100;
   botonRepetir.ancho = 200;
@@ -303,7 +303,7 @@ function dibujarJugando() {
 
 function dibujarFeedback() {
 
-  // Variables para pantalla feedback
+  //Variables para pantalla feedback
   let fondoR, fondoG, fondoB; //Colores RGB
   let mensajeGrande;
   let mensajePeque;
@@ -321,12 +321,12 @@ function dibujarFeedback() {
   // Fondo
   background(fondoR, fondoG, fondoB);
 
-  // Texto grande
+  //Texto grande
   fill(255);
   textSize(36);
   text(mensajeGrande, width / 2, height / 2 - 40);
 
-  // Texto pequeño
+  //Texto pequeño
   textSize(22);
   text(mensajePeque, width / 2, height / 2 + 10);
 
@@ -365,7 +365,7 @@ function dibujarTerminado() {
   botonReiniciar.dibujar(true);
 }
 
-// JUEGO
+//JUEGO
 function iniciarJuego() {
   nivel = 0;
   aciertosEnNivel = 0;
@@ -387,7 +387,8 @@ function nuevaRonda() {
 }
 
 //Funcion para cuando el jugador pulsa el botón de la nota
-//Se comprueba la nota pulsada, se actualiza el contador de acierto, se verifica si se pasa al siguiente nivel
+//Se comprueba la nota pulsada, se actualiza el contador de acierto
+//se verifica si se pasa al siguiente nivel
 function comprobarRespuesta(indiceNotaPulsada) {
   haSubidoNivel = false;
   ultimaRespuestaCorrecta = (indiceNotaPulsada === indiceNotaActual);
@@ -475,7 +476,7 @@ function mousePressed() {
   }
 }
 
-// BOTON
+//BOTON
 
 class Boton {
   constructor(x, y, ancho, alto, texto, colorFondo, indiceNota) {
