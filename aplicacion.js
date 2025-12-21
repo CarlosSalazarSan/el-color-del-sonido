@@ -20,7 +20,7 @@ let textosIntro = [
   "Acierta 5 veces en un nivel para\n" +
   "pasar al siguiente.\n\n" +
   "En el último nivel ya no verás el\n" +
-  "nombre de la nota en el botón solo verás colores en tu mente (y pantalla)."
+  "nombre de la nota en el botón."
 ];
 
 let paginaIntro = 0;
